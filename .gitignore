@@ -1,0 +1,5 @@
+# 忽略 node_modules 目录
+node_modules/
+
+# 也可以使用通配符
+node_modules
