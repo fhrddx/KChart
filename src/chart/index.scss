@@ -1,0 +1,26 @@
+.main-content{
+  //border: 1px solid red;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  padding-top: 20px;
+  .kline-container{
+    //border: 1px solid green;
+    position: relative;
+    min-height: 500px;
+    #canvas{
+      z-index: 1;
+    }
+    #canvasTop{
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+html  body {
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+}
