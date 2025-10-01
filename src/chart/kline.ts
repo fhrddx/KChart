@@ -315,7 +315,7 @@ export default class kline {
     //将宽度分成n个小区间， 一个小区间画一个蜡烛， 每个区间的宽度是 splitW
     const splitW = this.config.width / this.config.lmt!;
     //蜡烛占小区间的宽度
-    const widthPercent = 0.65;
+    const widthPercent = 0.7;
     //画出蜡烛图、成交量图
     for (
       let i = this.startIndex;
