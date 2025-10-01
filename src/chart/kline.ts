@@ -595,12 +595,36 @@ export default class kline {
       return;
     }
     //如果右边还是比较充足的话，就不补充数据了
-    if(!(this.arrayList.length - this.startIndex < this.config.lmt!)){
+    if(this.arrayList.length - this.startIndex > 3 * this.config.lmt!){
       return;
     }
-
-
-
-
+    if(this.arrayList[this.arrayList.length - 1].date === this.newestItem?.date){
+      return;
+    }
+    const date = new Date(this.arrayList[this.arrayList.length - 1].date.replace('-', '/').replace('-','/'));
+    const days = Math.floor(this.config.lmt! / 35 * 46);
+    const endDate = new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+    const list = await fetchKlineData({
+      stock: this.config.stock,
+      endDate: `${endDate.getFullYear()}${(endDate.getMonth() + 1 + '').padStart(2, '0')}${(endDate.getDate() + '').padStart(2, '0')}`,
+      count: 3 * this.config.lmt!,
+    });
+    const lastItemDate = new Date(this.arrayList[this.arrayList.length - 1].date);
+    for(let i = 0; i < list.length; i++){
+      const date = new Date(list[i].date);
+      if(date <= lastItemDate){
+        list.shift();
+      }
+    }
+    const appendList = list.length > 2 * this.config.lmt! ? list.slice(0, 2 * this.config.lmt!) : list;
+    let newArrayList = [...this.arrayList, ...appendList];
+    let newIndex = this.startIndex
+    if(this.startIndex > 3 * this.config.lmt!){
+      const minCount = this.startIndex - 2 * this.config.lmt!;
+      newArrayList = newArrayList.slice(minCount, newArrayList.length);
+      newIndex = newIndex - minCount;
+    }
+    this.arrayList = newArrayList;
+    this.startIndex = newIndex;
   }
 }
