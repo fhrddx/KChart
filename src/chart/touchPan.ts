@@ -19,11 +19,15 @@ export class touchPan {
     this.klineChart = klineObject;
     this.callbackFun = callback;
 
+    const dpr = window.devicePixelRatio || 1;
     const canvas: any = document.getElementById(this.klineChart.config.touchPanCanvasId);
-    canvas.width = this.klineChart.config.width + 1;
-    canvas.height = this.klineChart.config.height + 1;
+    canvas.width = (this.klineChart.config.width + 1) * dpr;
+    canvas.height = (this.klineChart.config.height + 1) * dpr;
+    canvas.style.height = this.klineChart.config.height + 1 + 'px';
+    canvas.style.width = this.klineChart.config.width + 1 + 'px';
     this.canvasCxt = canvas.getContext('2d');
     this.canvasCxt.translate(0.5, 0.5);
+    this.canvasCxt.scale(dpr, dpr);
 
     const rect = canvas.getBoundingClientRect();
     this.parentLeft = rect.left;
