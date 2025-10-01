@@ -118,7 +118,7 @@ export default class kline {
     //画一下5日均线
     this.canvasCxt.beginPath();
     this.canvasCxt.strokeStyle = this.config.ma5Color;
-    this.canvasCxt.lineWidth = 0.7;
+    this.canvasCxt.lineWidth = 1;
     let isTheFirstItem = true;
     for (
       let i = this.startIndex;
@@ -162,7 +162,7 @@ export default class kline {
     //画一下10日均线
     this.canvasCxt.beginPath();
     this.canvasCxt.strokeStyle = this.config.ma10Color;
-    this.canvasCxt.lineWidth = 0.7;
+    this.canvasCxt.lineWidth = 1;
     isTheFirstItem = true;
     for (
       let i = this.startIndex;
@@ -206,7 +206,7 @@ export default class kline {
     //画一下20日均线
     this.canvasCxt.beginPath();
     this.canvasCxt.strokeStyle = this.config.ma20Color;
-    this.canvasCxt.lineWidth = 0.7;
+    this.canvasCxt.lineWidth = 1;
     isTheFirstItem = true;
     for (
       let i = this.startIndex;
@@ -250,7 +250,7 @@ export default class kline {
     //画一下成交量快线
     this.canvasCxt.beginPath();
     this.canvasCxt.strokeStyle = this.config.cma1Color;
-    this.canvasCxt.lineWidth = 0.8;
+    this.canvasCxt.lineWidth = 1;
     isTheFirstItem = true;
     for (
       let i = this.startIndex;
@@ -278,7 +278,7 @@ export default class kline {
     //画一下成交量慢线
     this.canvasCxt.beginPath();
     this.canvasCxt.strokeStyle = this.config.cma2Color;
-    this.canvasCxt.lineWidth = 0.8;
+    this.canvasCxt.lineWidth = 1;
     isTheFirstItem = true;
     for (
       let i = this.startIndex;
