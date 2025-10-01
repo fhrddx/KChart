@@ -594,5 +594,13 @@ export default class kline {
       this.startIndex = newStartIndex;
       return;
     }
+    //如果右边还是比较充足的话，就不补充数据了
+    if(!(this.arrayList.length - this.startIndex < this.config.lmt!)){
+      return;
+    }
+
+
+
+
   }
 }
