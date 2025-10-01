@@ -33,15 +33,19 @@ export default class kline {
       tradeMessageHeight,
       xLabelHeight,
     } = this.config;
+    const dpr = window.devicePixelRatio || 1;
     //根据传入的参数，调整canvas的尺寸大小
     const canvas: any = document.getElementById(canvasId)!;
     if (canvas) {
-      canvas.width = width + 1;
-      canvas.height = height + 1;
+      canvas.width = (width + 1) * dpr;
+      canvas.height = (height + 1) * dpr;
+      canvas.style.height = height + 1 + 'px';
+      canvas.style.width = width + 1 + 'px';
     }
     //获取canvas绘画的上下文
     this.canvasCxt = canvas.getContext('2d');
     this.canvasCxt.translate(0.5, 0.5);
+    this.canvasCxt.scale(dpr, dpr);
     //主图的高度
     this.mainChartHeight = Math.floor(
       (height - lineMessageHeight! - tradeMessageHeight! - xLabelHeight!) * mainChartHeightPercent!,
