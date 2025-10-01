@@ -568,7 +568,7 @@ export default class kline {
   //检查下是否需要增加数据
   public async tryFetchData(){
     const timeInterval = Date.now() - this.fetchDataTime;
-    if(timeInterval < 3000){
+    if(timeInterval < 1000){
       return;
     }
     this.fetchDataTime = Date.now();
