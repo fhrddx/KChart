@@ -18,6 +18,8 @@ export default class kline {
   private maxAmount = 0;
   private newestItem: stockItemData | null = null;
   private isTheFirstTimeFetch: boolean = true;
+  //上次获取数据的时间
+  private fetchDataTime: number = Date.now();
 
   constructor(params: KlineConfig) {
     //传入的参数将替换默认的样式配置
@@ -560,5 +562,31 @@ export default class kline {
     }
     this.startIndex = newIndex;
     this.drawCanvasAll();
+  }
+
+
+  //检查下是否需要增加数据
+  public async tryFetchData(){
+    const timeInterval = Date.now() - this.fetchDataTime;
+    if(timeInterval < 3000){
+      return;
+    }
+    if(this.startIndex < this.config.lmt!){
+      const date = this.arrayList[0].date;
+      const list = await fetchKlineData({
+        stock: this.config.stock,
+        endDate: `${date.replace('-', '').replace('-', '')}`,
+        count: 2 * this.config.lmt!,
+      });
+      for(let i = list.length -1; i >= 0; i--){
+        const date = new Date(list[i].date);
+        if(date >= new Date(this.arrayList[0].date)){
+          list.pop();
+        }
+      }
+      this.arrayList = [...list, ...this.arrayList];
+      this.startIndex = this.startIndex + list.length;
+      this.fetchDataTime = Date.now();
+    }
   }
 }

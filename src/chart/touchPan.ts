@@ -79,6 +79,7 @@ export class touchPan {
         }, 1000);
       }
       this.isLongPress = false;
+      this.klineChart.tryFetchData();
     });
   }
 
