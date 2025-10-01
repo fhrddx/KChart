@@ -571,6 +571,7 @@ export default class kline {
     if(timeInterval < 3000){
       return;
     }
+    this.fetchDataTime = Date.now();
     if(this.startIndex < this.config.lmt!){
       const date = this.arrayList[0].date;
       const list = await fetchKlineData({
@@ -591,7 +592,6 @@ export default class kline {
       const newStartIndex = this.startIndex + list.length;
       this.arrayList = newArrayList;
       this.startIndex = newStartIndex;
-      this.fetchDataTime = Date.now();
     }
   }
 }
