@@ -86,7 +86,7 @@ export class touchPan {
   //拖动K线图的效果
   private moveKLineChart(e: any) {
     //灵敏系数，避免拖动幅度很小，但是拖动距离却很大，会让用户感觉不好控制
-    const xishu = 0.5;
+    const xishu = 0.8;
     const offsetX = (e.touches[0].clientX - this.startX) * xishu;
     this.klineChart.slideOffsetX(this.lastArrayStartIndex, offsetX);
   }
