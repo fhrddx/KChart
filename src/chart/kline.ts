@@ -584,8 +584,13 @@ export default class kline {
           list.pop();
         }
       }
-      this.arrayList = [...list, ...this.arrayList];
-      this.startIndex = this.startIndex + list.length;
+      let newArrayList = [...list, ...this.arrayList];
+      if(newArrayList.length > 5 * this.config.lmt!){
+        newArrayList = newArrayList.slice(0, 5 * this.config.lmt!);
+      }
+      const newStartIndex = this.startIndex + list.length;
+      this.arrayList = newArrayList;
+      this.startIndex = newStartIndex;
       this.fetchDataTime = Date.now();
     }
   }
