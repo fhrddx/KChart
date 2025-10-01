@@ -276,7 +276,7 @@ const defaultKlineConfig: KlineConfig = {
   height: 500,
   klt: 101,
   fqt: 1,
-  lmt: 46,
+  lmt: 35,
   lineMessageHeight: 30,
   tradeMessageHeight: 30,
   xLabelHeight: 30,
