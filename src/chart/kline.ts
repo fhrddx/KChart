@@ -592,6 +592,7 @@ export default class kline {
       const newStartIndex = this.startIndex + list.length;
       this.arrayList = newArrayList;
       this.startIndex = newStartIndex;
+      return;
     }
   }
 }
