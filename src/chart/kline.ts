@@ -378,19 +378,10 @@ export default class kline {
       //画一下成交量
       const amountHeight = (item.zs / maxAmount) * this.subChartHeight;
       const amountY = Math.floor(this.config.height - amountHeight - this.config.xLabelHeight!);
-      this.canvasCxt.strokeRect(
-        jx,
-        amountY,
-        Math.floor(widthPercent * splitW),
-        Math.floor(amountHeight),
-      );
-      //下面这一个写法， 要考虑下怎么写可以更清晰， 目前还是不够清晰
-      this.canvasCxt.fillRect(
-        jx,
-        amountY,
-        Math.floor(widthPercent * splitW),
-        Math.floor(amountHeight),
-      );
+      //注意：先填充再描边，这样边框更清晰一点
+      this.canvasCxt.rect(jx, amountY, Math.floor(widthPercent * splitW), Math.floor(amountHeight));
+      this.canvasCxt.fill();
+      this.canvasCxt.stroke();
     }
   }
 
