@@ -370,9 +370,10 @@ export default class kline {
         );
         this.canvasCxt.strokeStyle = this.config.greenColor;
         this.canvasCxt.fillStyle = this.config.greenColor;
-        this.canvasCxt.strokeRect(jx, jzg, Math.floor(widthPercent * splitW), jzd - jzg);
-        //下面这一个写法， 要考虑下怎么写可以更清晰， 目前还是不够清晰
-        this.canvasCxt.fillRect(jx, jzg, Math.floor(widthPercent * splitW), jzd - jzg);
+        //注意：先填充再描边，这样边框更清晰一点
+        this.canvasCxt.rect(jx, jzg, Math.floor(widthPercent * splitW), jzd - jzg);
+        this.canvasCxt.fill();
+        this.canvasCxt.stroke();
       }
       //画一下成交量
       const amountHeight = (item.zs / maxAmount) * this.subChartHeight;
