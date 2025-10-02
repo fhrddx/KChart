@@ -549,6 +549,9 @@ export default class kline {
 
   //相对于列表的开始index，向右滑动了 offsetX
   public slideOffsetX(index: number, offsetX: number) {
+    if(offsetX < 0 && this.startIndex >= this.arrayList.length - this.config.lmt!){
+      return;
+    }
     const splitW = this.config.width / this.config.lmt!;
     const slideIndex = Math.floor(offsetX / splitW);
     let newIndex = index - slideIndex;
@@ -563,7 +566,6 @@ export default class kline {
     this.startIndex = newIndex;
     this.drawCanvasAll();
   }
-
 
   //检查下是否需要增加数据
   public async tryFetchData(){
