@@ -563,6 +563,9 @@ export default class kline {
     if (newIndex === this.startIndex) {
       return;
     }
+    if(newIndex > this.arrayList.length - this.config.lmt!){
+      newIndex = this.arrayList.length - this.config.lmt!
+    }
     this.startIndex = newIndex;
     this.drawCanvasAll();
   }
