@@ -432,12 +432,12 @@ export default class kline {
     for (let i = 1; i <= 4; i++) {
       this.canvasCxt.fillText(
         (max - ((max - min) / 4) * i).toFixed(2),
-        0,
+        1,
         Math.floor(this.config.lineMessageHeight! + (this.mainChartHeight / 4) * i) - transY,
       );
     }
     this.canvasCxt.textBaseline = 'top';
-    this.canvasCxt.fillText(max.toFixed(2), 0, this.config.lineMessageHeight! + transY);
+    this.canvasCxt.fillText(max.toFixed(2), 1, this.config.lineMessageHeight!);
 
     //x轴最左边的刻度
     this.canvasCxt.beginPath();
