@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Kchart/static/css/main.a1537c8c.css",
-    "main.js": "/Kchart/static/js/main.d718e475.js",
-    "static/js/453.a7f4ff0b.chunk.js": "/Kchart/static/js/453.a7f4ff0b.chunk.js",
-    "index.html": "/Kchart/index.html",
-    "main.a1537c8c.css.map": "/Kchart/static/css/main.a1537c8c.css.map",
-    "main.d718e475.js.map": "/Kchart/static/js/main.d718e475.js.map",
-    "453.a7f4ff0b.chunk.js.map": "/Kchart/static/js/453.a7f4ff0b.chunk.js.map"
+    "main.css": "/KChart/static/css/main.a1537c8c.css",
+    "main.js": "/KChart/static/js/main.42e20519.js",
+    "static/js/453.a7f4ff0b.chunk.js": "/KChart/static/js/453.a7f4ff0b.chunk.js",
+    "index.html": "/KChart/index.html",
+    "main.a1537c8c.css.map": "/KChart/static/css/main.a1537c8c.css.map",
+    "main.42e20519.js.map": "/KChart/static/js/main.42e20519.js.map",
+    "453.a7f4ff0b.chunk.js.map": "/KChart/static/js/453.a7f4ff0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a1537c8c.css",
-    "static/js/main.d718e475.js"
+    "static/js/main.42e20519.js"
   ]
 }
